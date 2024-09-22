@@ -48,7 +48,11 @@ const ModalForm = ({ open, setIsopen, handleClick }) => {
     }
   }
   return (
-    <div className="modal" >
+    <div className="modal">
+       <h1>User Details Modal</h1>
+      <button type="button" onClick={handleClick} style={{backgroundColor:'#0056B3',color:'white',fontSize:'1.3rem',borderRadius:'10px',padding:'1rem',border:'none'}}>
+        Open Form
+      </button>
       {open && (
         <div className="modal-content" onClick={closeModal}>
       
@@ -80,7 +84,7 @@ const ModalForm = ({ open, setIsopen, handleClick }) => {
             </div>
             <br />
             <div>
-            <button type="submit" className="btn">Submit</button>
+            <button type="submit" className="submit-button">Submit</button>
             </div>
           </form>
         </div>
