@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import "./ModalForm.css"
-const ModalForm = ({ open, setIsopen, handleClick }) => {
+const ModalForm = () => {
+
   const [data, setData] = useState({
     username: "",
     email: "",
     number: "",
     date: "",
   });
+  const [open,setIsopen]=useState(false);
+  const handleClick=()=>{
+      setIsopen(true);
+  }
+  const closeModal = (e) => {
+    console.log(e.target.className)
+    if (e.target.className === "modal-content")
+      setIsopen(false);
+    
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     if (data.number.toString().length !== 10) {
@@ -41,11 +52,7 @@ const ModalForm = ({ open, setIsopen, handleClick }) => {
       date: e.target.value,
     }));
   };
-  const closeModal = (e) => {
-    if (e.target.className === "modal-content") {
-      setIsopen(false);
-    }
-  }
+  
   return (
     <div className="modal">
       <h1>User Details Modal</h1>
@@ -67,7 +74,8 @@ const ModalForm = ({ open, setIsopen, handleClick }) => {
             <div className="inputGrp">
               <label style={{ fontSize: '1.5rem', fontWeight: '600', lineHeight: '1.5rem' }} htmlFor="email">Email Address:</label>
               <br />
-              <input type="email" required onChange={handleEmail} className="inputfield" name="email" id="email" /></div>
+              <input type="email" required onChange={handleEmail} className="inputfield" name="email" id="email" />
+              </div>
 
 
             <div className="inputGrp">
