@@ -15,18 +15,20 @@ const ModalForm = () => {
   };
 
   const closeModal = (e) => {
-    if (e.target.className === "modal-overlay") {
+    if (e.target.className === "modal") {
       setIsopen(false);
     }
   };
 
   const handleSubmit = (e) => {
+    console.log(e)
     e.preventDefault();
     if (data.number.toString().length !== 10) {
       alert("Invalid phone number. Enter a 10-digit phone number");
     } else if (new Date(data.date) > Date.now()) {
       alert("Invalid date of birth. Date of birth cannot be in the future.");
     }
+    setIsopen(false)
   };
 
   const handleUsername = (e) => {
@@ -55,15 +57,15 @@ const ModalForm = () => {
   };
 
   return (
-    <div className="modal">
+    <div className="main">
       <h1>User Details Modal</h1>
       <button onClick={handleClick} style={{ backgroundColor: '#0056B3', color: 'white', fontSize: '1.3rem', borderRadius: '10px', padding: '1rem', border: 'none' }}>
         Open Form
       </button>
 
       {open && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="modal" onClick={closeModal}>
+          <div className="modal-content" >
             <form onSubmit={handleSubmit}>
               <h2>Fill Details</h2>
               <div className="inputGrp">
