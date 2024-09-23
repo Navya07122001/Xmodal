@@ -15,7 +15,7 @@ const ModalForm = () => {
   };
 
   const closeModal = (e) => {
-    if (e.target.className === "modal-content" || e.target.className === "modal-overlay") {
+    if (e.target.className === "modal-overlay") {
       setIsopen(false);
     }
   };
@@ -60,6 +60,7 @@ const ModalForm = () => {
       <button onClick={handleClick} style={{ backgroundColor: '#0056B3', color: 'white', fontSize: '1.3rem', borderRadius: '10px', padding: '1rem', border: 'none' }}>
         Open Form
       </button>
+
       {open && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
